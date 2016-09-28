@@ -45,7 +45,18 @@ namespace Angular2ASPCORE
 
             app.UseMvc(routes =>
             {
-                routes.MapSpaFallbackRoute("spa-fallback", new { controller = "home", action = "index" });
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+
+                // when the user types in a link handled by client side routing to the address bar 
+                // or refreshes the page, that triggers the server routing. The server should pass 
+                // that onto the client, so Angular can handle the route
+                routes.MapRoute(
+                    name: "spa-fallback",
+                    template: "{*url}",
+                    defaults: new { controller = "Home", action = "Index" }
+                );
             });
         }
     }
