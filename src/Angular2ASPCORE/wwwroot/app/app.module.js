@@ -42,6 +42,12 @@ var _404_component_1 = require('./pages/404.component');
 var _500_component_1 = require('./pages/500.component');
 var login_component_1 = require('./pages/login.component');
 var register_component_1 = require('./pages/register.component');
+// used to create fake backend
+var index_1 = require('./_helpers/index');
+var testing_1 = require('@angular/http/testing');
+var http_1 = require('@angular/http');
+var index_2 = require('./_guards/index');
+var index_3 = require('./_services/index');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -76,6 +82,15 @@ var AppModule = (function () {
                 breadcrumb_component_1.BreadcrumbsComponent,
                 sidebar_directive_1.SIDEBAR_TOGGLE_DIRECTIVES,
                 aside_directive_1.AsideToggleDirective
+            ],
+            providers: [
+                index_2.AuthGuard,
+                index_3.AuthenticationService,
+                index_3.UserService,
+                // providers used to create fake backend
+                index_1.fakeBackendProvider,
+                testing_1.MockBackend,
+                http_1.BaseRequestOptions
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

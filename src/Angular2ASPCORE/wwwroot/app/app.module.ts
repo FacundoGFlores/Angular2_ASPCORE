@@ -1,5 +1,7 @@
 import { NgModule }                     from '@angular/core';
 import { BrowserModule }                from '@angular/platform-browser';
+import { FormsModule }    from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent }                 from './app.component';
 import { Ng2BootstrapModule }           from 'ng2-bootstrap/ng2-bootstrap';
@@ -42,6 +44,14 @@ import { p500Component }                from './pages/500.component';
 import { LoginComponent }               from './pages/login.component';
 import { RegisterComponent }            from './pages/register.component';
 
+// used to create fake backend
+import { fakeBackendProvider } from './_helpers/index';
+import { MockBackend, MockConnection } from '@angular/http/testing';
+import { BaseRequestOptions } from '@angular/http';
+
+import { AuthGuard } from './_guards/index';
+import { AuthenticationService, UserService } from './_services/index';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -72,6 +82,16 @@ import { RegisterComponent }            from './pages/register.component';
     BreadcrumbsComponent,
     SIDEBAR_TOGGLE_DIRECTIVES,
     AsideToggleDirective
+  ],
+  providers: [
+      AuthGuard,
+      AuthenticationService,
+      UserService,
+
+      // providers used to create fake backend
+      fakeBackendProvider,
+      MockBackend,
+      BaseRequestOptions
   ],
   bootstrap: [ AppComponent ]
 })
