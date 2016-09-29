@@ -57,7 +57,9 @@ import { AuthenticationService, UserService } from './_services/index';
     BrowserModule,
     routing,
     Ng2BootstrapModule,
-    ChartsModule
+    ChartsModule,
+    HttpModule,
+    routing
   ],
   declarations: [
     AppComponent,

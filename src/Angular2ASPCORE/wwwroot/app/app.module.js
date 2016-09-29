@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
+var http_1 = require('@angular/http');
 var app_component_1 = require('./app.component');
 var ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
 var nav_dropdown_directive_1 = require('./shared/nav-dropdown.directive');
@@ -45,7 +46,7 @@ var register_component_1 = require('./pages/register.component');
 // used to create fake backend
 var index_1 = require('./_helpers/index');
 var testing_1 = require('@angular/http/testing');
-var http_1 = require('@angular/http');
+var http_2 = require('@angular/http');
 var index_2 = require('./_guards/index');
 var index_3 = require('./_services/index');
 var AppModule = (function () {
@@ -57,7 +58,9 @@ var AppModule = (function () {
                 platform_browser_1.BrowserModule,
                 app_routing_1.routing,
                 ng2_bootstrap_1.Ng2BootstrapModule,
-                ng2_charts_1.ChartsModule
+                ng2_charts_1.ChartsModule,
+                http_1.HttpModule,
+                app_routing_1.routing
             ],
             declarations: [
                 app_component_1.AppComponent,
@@ -90,7 +93,7 @@ var AppModule = (function () {
                 // providers used to create fake backend
                 index_1.fakeBackendProvider,
                 testing_1.MockBackend,
-                http_1.BaseRequestOptions
+                http_2.BaseRequestOptions
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 
